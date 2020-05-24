@@ -20,6 +20,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 
 }
 
@@ -39,13 +43,29 @@ dependencies {
     annotationProcessor "com.google.dagger:dagger-android-processor:$dagger_version"
     annotationProcessor "com.google.dagger:dagger-compiler:$dagger_version"
 
-    def material_version = "1.0.0"
+    def material_version = "1.1.0"
     implementation "com.google.android.material:material:$material_version"
     //glide
     implementation 'com.github.bumptech.glide:glide:4.11.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
     // ViewModel and LiveData
-    def lifecycle_version = '2.2.0-alpha03'
+    def lifecycle_version = '2.2.0'
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
+
+    // Retrofit
+    def retrofitVersion = "2.9.0"
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+
+    // RxJava
+    def rxjava_version = '2.0.1'
+    implementation "io.reactivex.rxjava2:rxjava:$rxjava_version"
+
+    // Rx-Retrofit Call Adapter
+    def rxcalladapter_version = '2.9.0'
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$rxcalladapter_version"
+
+    def reactivestreams_version = "1.1.1"
+    implementation "android.arch.lifecycle:reactivestreams:$reactivestreams_version"
 
 }
