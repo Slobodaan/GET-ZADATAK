@@ -1,17 +1,23 @@
 package com.example.pet_store.network.login;
 
-import com.example.pet_store.models.User;
+import com.example.pet_store.List.PetList;
+import com.example.pet_store.model.User;
+
+import java.util.List;
 
 import io.reactivex.Flowable;
-import okhttp3.ResponseBody;
+import io.reactivex.Single;
 import retrofit2.Call;
 import retrofit2.http.GET;
-import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 public interface LoginApi {
 
-@GET("users/{id}")
-    Flowable<User> getUser(
-            @Path("id") int id
+@GET("user/login")
+Call<User> getUser(
+        @Query("username") String username,
+        @Query("password") String password
 );
+
+
 }

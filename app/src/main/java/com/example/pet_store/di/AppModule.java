@@ -7,6 +7,8 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.RequestManager;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.pet_store.R;
+import com.example.pet_store.model.ApiService;
+import com.example.pet_store.network.pet_list.PetService;
 import com.example.pet_store.util.Constants;
 
 import javax.inject.Singleton;
@@ -31,6 +33,13 @@ public class AppModule {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
     }
+
+    @Singleton
+    @Provides
+    static PetService provideRetrofitService(Retrofit retrofit) {
+        return retrofit.create(PetService.class);
+    }
+
 
     @Singleton
     @Provides

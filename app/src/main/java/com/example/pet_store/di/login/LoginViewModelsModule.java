@@ -15,4 +15,5 @@ public abstract class LoginViewModelsModule {
     @IntoMap
     @ViewModelKey(LoginViewModel.class)
     public abstract ViewModel bindLoginViewModel(LoginViewModel loginViewModel);
+
 }

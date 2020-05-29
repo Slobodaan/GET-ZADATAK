@@ -1,4 +1,4 @@
-package com.example.pet_store.di;
+package com.example.pet_store.di.modul;
 
 import com.example.pet_store.di.login.LoginModule;
 import com.example.pet_store.di.login.LoginViewModelsModule;

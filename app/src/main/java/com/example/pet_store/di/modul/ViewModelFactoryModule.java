@@ -1,4 +1,4 @@
-package com.example.pet_store.di;
+package com.example.pet_store.di.modul;
 
 import android.view.View;
 
