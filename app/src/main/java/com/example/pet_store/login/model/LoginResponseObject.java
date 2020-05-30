@@ -1,4 +1,4 @@
-package com.example.pet_store.model;
+package com.example.pet_store.login.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.gson.annotations.Expose;

@@ -1,4 +1,4 @@
-package com.example.pet_store;
+package com.example.pet_store.list_pet.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
@@ -7,19 +7,19 @@ import retrofit2.Retrofit;
 
 import android.os.Bundle;
 
-import com.example.pet_store.List.PetList;
-import com.example.pet_store.adapter.PetListRecyclerAdapter;
-import com.example.pet_store.model.ApiService;
+
+import com.example.pet_store.R;
+
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class PetListActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
-    private PetListRecyclerAdapter adapter;
+  //  private PetListRecyclerAdapter adapter;
     private CompositeDisposable compositeDisposable;
     private Retrofit retrofit;
-    private ApiService mService;
-    private ArrayList<PetList> mList;
+  //  private ApiService mService;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

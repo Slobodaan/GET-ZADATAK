@@ -18,6 +18,8 @@ public abstract class ViewModelModule {
     @ViewModelKey(LoginViewModel.class)
     public abstract ViewModel bindLoginViewModel(LoginViewModel loginViewModel);
 
+
+
     @Binds
     abstract ViewModelProvider.Factory bindViewModelFactory (ViewModelProviderFactory providerFactory);
 

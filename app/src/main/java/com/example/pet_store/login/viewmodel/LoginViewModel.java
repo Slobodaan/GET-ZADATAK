@@ -4,7 +4,7 @@ import android.util.Log;
 import android.view.View;
 
 import com.example.pet_store.login.model.ResponseLogin;
-import com.example.pet_store.model.LoginResponseObject;
+import com.example.pet_store.login.model.LoginResponseObject;
 
 import javax.inject.Inject;
 

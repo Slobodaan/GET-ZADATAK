@@ -1,7 +1,6 @@
 package com.example.pet_store.login.model;
 
-import com.example.pet_store.model.LoginResponseObject;
-import com.example.pet_store.network.login.ServerApi;
+import com.example.pet_store.network.ServerApi;
 
 import javax.inject.Inject;
 
@@ -35,8 +34,6 @@ public class ResponseLogin {
 
             @Override
             public void onFailure(Call<LoginResponseObject> call, Throwable t) {
-
-
             }
         });
         return liveData;

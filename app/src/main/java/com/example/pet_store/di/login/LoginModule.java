@@ -1,6 +1,6 @@
 package com.example.pet_store.di.login;
 
-import com.example.pet_store.network.login.ServerApi;
+import com.example.pet_store.network.ServerApi;
 
 import dagger.Module;
 import dagger.Provides;
