@@ -1,7 +1,6 @@
 package com.example.pet_store.di.login;
 
-import com.example.pet_store.network.login.LoginApi;
-import com.google.gson.internal.$Gson$Preconditions;
+import com.example.pet_store.network.login.ServerApi;
 
 import dagger.Module;
 import dagger.Provides;
@@ -11,8 +10,8 @@ import retrofit2.Retrofit;
 public class LoginModule {
 
     @Provides
-    static LoginApi provideLoginApi(Retrofit retrofit){
-        return retrofit.create(LoginApi.class);
+    static ServerApi provideLoginApi(Retrofit retrofit){
+        return retrofit.create(ServerApi.class);
     }
 
 }

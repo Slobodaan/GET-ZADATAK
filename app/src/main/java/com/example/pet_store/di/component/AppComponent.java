@@ -3,11 +3,12 @@ package com.example.pet_store.di.component;
 
 import android.app.Application;
 
+import com.example.pet_store.base.BaseActivity;
 import com.example.pet_store.base.BaseApplication;
 import com.example.pet_store.di.AppModule;
 import com.example.pet_store.di.modul.ActivityBuildersModule;
 import com.example.pet_store.di.modul.ContextModule;
-import com.example.pet_store.di.modul.ViewModelFactoryModule;
+
 
 import javax.inject.Singleton;
 
@@ -26,13 +27,14 @@ import dagger.android.support.AndroidSupportInjectionModule;
                 AppModule.class, }
 )
 
-public interface AppComponent extends AndroidInjector<BaseApplication> {
-        void inject(BaseApplication application);
-        @Component.Builder
-        interface Builder{
-                @BindsInstance
-                Builder application(Application application);
-                AppComponent build();
+public interface AppComponent  {
+    @Component.Builder
+    interface Builder {
+        @BindsInstance
+        AppComponent.Builder application(BaseApplication baseApplication);
+        AppComponent build();
         }
+
+    void inject(BaseApplication app);
 
 }

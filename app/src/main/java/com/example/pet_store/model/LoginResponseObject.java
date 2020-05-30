@@ -1,20 +1,20 @@
 package com.example.pet_store.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class User {
+public class LoginResponseObject {
 
-int code;
-String type;
-String message;
+    @JsonProperty("code")
+    private int code;
 
+    @JsonProperty("type")
+    private String type;
 
-    public User(int code, String type, String message) {
-        this.code = code;
-        this.type = type;
-        this.message = message;
-    }
+    @JsonProperty("message")
+    private String message;
+
 
     public int getCode() {
         return code;
@@ -39,4 +39,5 @@ String message;
     public void setMessage(String message) {
         this.message = message;
     }
+
 }

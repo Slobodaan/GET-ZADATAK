@@ -5,7 +5,7 @@
 <data>
 <variable
     name="LoginViewModel"
-    type="com.example.pet_store.login.LoginViewModel" />
+    type="com.example.pet_store.login.viewmodel.LoginViewModel" />
 </data>
 
 

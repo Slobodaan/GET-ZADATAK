@@ -7,7 +7,7 @@ import android.widget.TextView;
 import com.example.pet_store.R;
 import com.example.pet_store.adapter.PetListRecyclerAdapter;
 import com.example.pet_store.base.BaseFragment;
-import com.example.pet_store.di.modul.ViewModelFactoryModule;
+
 //import com.example.pet_store.di.pet_list.PetListViewModelModule;
 import com.example.pet_store.viewmodels.ViewModelProviderFactory;
 
