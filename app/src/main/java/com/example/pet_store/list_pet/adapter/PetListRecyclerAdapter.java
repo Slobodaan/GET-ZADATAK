@@ -37,7 +37,11 @@ public class PetListRecyclerAdapter extends RecyclerView.Adapter<PetListRecycler
        PetListObject petList = petArrayList.get(position);
        PetListViewHolder viewHolder = holder;
        viewHolder.mName.setText(petList.getName());
-       viewHolder.mCategoryName.setText(petList.getCategory().getName());
+       if(petList.getCategory().getName().equals("")) {
+           viewHolder.mCategoryName.setText("");
+       }else{viewHolder.mCategoryName.setText(petList.getCategory().getName());
+
+       }
     }
 
     @Override

@@ -19,7 +19,7 @@
         android:clickable="true"
         android:id="@+id/txtAvailable"
         android:gravity="center"
-        android:textColor="@color/red"
+        android:textColor="@color/app_color"
         android:layout_gravity="center"
         android:layout_weight="1"/>
     <TextView
@@ -48,7 +48,7 @@
     android:layout_width="match_parent"
     android:id="@+id/rlLine"
     android:layout_height="5dp"
-    android:background="@color/red"
+    android:background="@color/app_color"
    android:layout_below="@+id/llOption" />
     <androidx.recyclerview.widget.RecyclerView
         android:layout_below="@+id/rlLine"
@@ -63,7 +63,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         fab:fab_plusIconColor="@color/white"
-        fab:fab_colorNormal="@color/red"
+        fab:fab_colorNormal="@color/app_color"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="16dp"
         android:layout_alignParentBottom="true"

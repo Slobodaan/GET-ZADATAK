@@ -14,6 +14,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
+        android:entries="@array/pet_array"
+
        />
     <Button
         android:id="@+id/btnAdd"
