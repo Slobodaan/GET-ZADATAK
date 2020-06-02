@@ -1,6 +1,8 @@
 package com.example.pet_store.di;
 
-import com.example.pet_store.login.model.ResponseLogin;
+import com.example.pet_store.Repository.ResponseLogin;
+import com.example.pet_store.Repository.ResponsePetList;
+import com.example.pet_store.di.modul.ViewModelModule;
 import com.example.pet_store.network.ServerApi;
 
 import com.example.pet_store.util.Constants;
@@ -13,7 +15,8 @@ import retrofit2.Retrofit;
 import retrofit2.converter.jackson.JacksonConverterFactory;
 
 
-@Module
+
+@Module(includes = {ViewModelModule.class})
 public class AppModule {
 
     @Singleton
@@ -35,5 +38,11 @@ public class AppModule {
     static ResponseLogin provideRetrofitResponse(ServerApi serverApi) {
         return new ResponseLogin(serverApi);
     }
+    @Singleton
+    @Provides
+    static ResponsePetList provideResponse(ServerApi serverApi) {
+        return new ResponsePetList(serverApi);
+    }
+    //novi repository
 
 }

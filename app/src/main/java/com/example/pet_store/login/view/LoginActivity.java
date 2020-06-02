@@ -13,35 +13,32 @@ import com.example.pet_store.R;
 import com.example.pet_store.databinding.ActivityLoginBinding;
 import com.example.pet_store.login.viewmodel.LoginViewModel;
 import com.example.pet_store.login.model.LoginResponseObject;
-import com.example.pet_store.viewmodels.ViewModelProviderFactory;
+import com.example.pet_store.di.ViewModelProviderFactory;
 
 import javax.inject.Inject;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+import dagger.android.AndroidInjection;
 import dagger.android.support.DaggerAppCompatActivity;
 
-public class LoginActivity extends DaggerAppCompatActivity implements View.OnClickListener {
+public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
     private EditText etEmail;
     private  EditText etPassword;
     private Button btnLogin;
 
     private ActivityLoginBinding binding;
-
     private LoginViewModel loginViewModel;
-
     private static final String TAG = "LoginActivity";
-
-
-
     @Inject
     ViewModelProviderFactory providerFactory;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        AndroidInjection.inject(this);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_login);
 
         loginViewModel =   ViewModelProviders.of(this, providerFactory).get(LoginViewModel.class);

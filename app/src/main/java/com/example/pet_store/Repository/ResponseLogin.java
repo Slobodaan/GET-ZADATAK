@@ -1,5 +1,6 @@
-package com.example.pet_store.login.model;
+package com.example.pet_store.Repository;
 
+import com.example.pet_store.login.model.LoginResponseObject;
 import com.example.pet_store.network.ServerApi;
 
 import javax.inject.Inject;

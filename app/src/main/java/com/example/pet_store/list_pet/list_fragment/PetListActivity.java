@@ -11,7 +11,7 @@
 //public class PetListActivity extends BaseActivity {
 //    @Override
 //    protected int layoutRes() {
-//        return R.layout.activitu_pet_store;
+//        return R.layout.activity_pet_store;
 //    }
 //
 //    @Override

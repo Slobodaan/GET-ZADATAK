@@ -1,4 +1,4 @@
-package com.example.pet_store.viewmodels;
+package com.example.pet_store.di;
 
 import android.view.View;
 

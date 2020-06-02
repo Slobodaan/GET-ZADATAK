@@ -3,4 +3,5 @@
     <string name="hint">User</string>
     <string name="hintPas">Password</string>
     <string name="login">Login</string>
+    <string name="add">ADD</string>
 </resources>
