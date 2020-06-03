@@ -19,6 +19,7 @@ import com.example.pet_store.di.ViewModelProviderFactory;
 import com.example.pet_store.list_pet.adapter.PetListRecyclerAdapter;
 import com.example.pet_store.list_pet.model.PetListObject;
 import com.example.pet_store.list_pet.viewmodel.PetListViewModel;
+import com.example.pet_store.list_pet_details.view.PetDetailsActivity;
 import com.example.pet_store.list_pet_post.view.AddNewPet;
 import com.getbase.floatingactionbutton.AddFloatingActionButton;
 
@@ -48,21 +49,26 @@ public class PetListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pet_store);
         initComponent();
-        addIte();
-        recyclerView = findViewById(R.id.recycler_pet_store);
         petListViewModel = ViewModelProviders.of(this, providerFactory).get(PetListViewModel.class);
+        petListViewModel.init();
+        addIte();
+        petListRecyclerAdapter = new PetListRecyclerAdapter(this);
+
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        recyclerView.setLayoutManager(linearLayoutManager);
+        recyclerView.setHasFixedSize(true);
         petListViewModel.setPetList("available");
         subscribeObservers(this);
-
     }
 
     private void subscribeObservers(Context context) {
         petListViewModel.observeList().observe(this, new Observer<List<PetListObject>>() {
             @Override
             public void onChanged(List<PetListObject> petListObjects) {
-                Toast.makeText(context, "radi ", Toast.LENGTH_LONG).show();
-                petListRecyclerAdapter = new PetListRecyclerAdapter(context, (ArrayList) petListObjects);
-                recyclerView.setLayoutManager(new LinearLayoutManager(context));
+                //Toast.makeText(context, "radi ", Toast.LENGTH_LONG).show();
+
+                petListRecyclerAdapter.updateList((ArrayList<PetListObject>) petListObjects);
                 recyclerView.setAdapter(petListRecyclerAdapter);
             }
         });
@@ -74,18 +80,17 @@ public class PetListActivity extends AppCompatActivity {
         mAvailable = findViewById(R.id.txtAvailable);
         mPending = findViewById(R.id.txtPending);
         mSold = findViewById(R.id.txtSold);
-
-
+        recyclerView = findViewById(R.id.recycler_pet_store);
     }
 
-    private void addIte() {
+    public void addIte() {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 fab.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        startActivity(new Intent(PetListActivity.this, AddNewPet.class));
+                        startActivity(new Intent(PetListActivity.this, PetDetailsActivity.class));
                     }
                 });
             }
@@ -102,7 +107,7 @@ public class PetListActivity extends AppCompatActivity {
         mPending.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                petListViewModel.setPetList("available");
+                petListViewModel.setPetList("pending");
                 mAvailable.setTextColor(getColor(R.color.colorPrimary));
                 mPending.setTextColor(getColor(R.color.app_color));
                 mSold.setTextColor(getColor(R.color.colorPrimary));

@@ -16,14 +16,18 @@ import retrofit2.Response;
 
 public class ResponsePetList {
     private ServerApi serverApi;
+    private    MutableLiveData<ArrayList<PetListObject>> liveData ;
 
     @Inject
     public ResponsePetList(ServerApi serverApi){
         this.serverApi = serverApi ;
+        liveData = new MutableLiveData<>();
     }
 
-       public LiveData<ArrayList<PetListObject>> setListObjectStatus(String status) {
-        MutableLiveData<ArrayList<PetListObject>> liveData = new MutableLiveData<>();
+
+
+    public void  setListObjectStatus(String status) {
+
 
         Call<List<PetListObject>> responseList = serverApi.getPetList(status);
 
@@ -39,6 +43,9 @@ public class ResponsePetList {
                System.out.println(t.getMessage());
             }
         });
-        return liveData;
    }
+    public  MutableLiveData<ArrayList<PetListObject>> getLiveData() {
+        return liveData;
+    }
+
  }

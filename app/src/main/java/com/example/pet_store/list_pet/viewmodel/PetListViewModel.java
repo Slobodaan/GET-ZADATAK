@@ -19,20 +19,27 @@ import androidx.lifecycle.ViewModel;
 
 public class PetListViewModel extends ViewModel {
     private ResponsePetList responsePetList;
-    private LiveData<ArrayList<PetListObject>> setList = new MutableLiveData<>();
+    private MutableLiveData<ArrayList<PetListObject>> petListLiveData;
+
+
 
 
     @Inject
     public PetListViewModel(ResponsePetList responsePetList) {
         this.responsePetList = responsePetList;
+
     }
 
     public void setPetList(String status) {
-     setList =  responsePetList.setListObjectStatus(status);
+        responsePetList.setListObjectStatus(status);
     }
 
     public LiveData<ArrayList<PetListObject>> observeList() {
-        return setList;
+        return petListLiveData;
     }
+    public void init(){
+        petListLiveData = responsePetList.getLiveData();
+    }
+
 
 }

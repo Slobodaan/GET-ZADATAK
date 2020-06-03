@@ -21,6 +21,7 @@
         </activity>
         <activity android:name=".list_pet.view.PetListActivity"></activity>
         <activity android:name=".list_pet_post.view.AddNewPet"></activity>
+        <activity android:name=".list_pet_details.view.PetDetailsActivity"></activity>
     </application>
 
 </manifest>

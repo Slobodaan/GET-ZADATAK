@@ -20,10 +20,10 @@ public class PetListRecyclerAdapter extends RecyclerView.Adapter<PetListRecycler
 
     ArrayList<PetListObject> petArrayList;
     Context context;
-    public PetListRecyclerAdapter(Context context, List<PetListObject> petArrayList)
+    public PetListRecyclerAdapter(Context context)
     {
         this.context = context;
-        this.petArrayList = (ArrayList<PetListObject>) petArrayList;
+
     }
     @NonNull
     @Override
@@ -37,11 +37,11 @@ public class PetListRecyclerAdapter extends RecyclerView.Adapter<PetListRecycler
        PetListObject petList = petArrayList.get(position);
        PetListViewHolder viewHolder = holder;
        viewHolder.mName.setText(petList.getName());
-       if(petList.getCategory().getName().equals("")) {
-           viewHolder.mCategoryName.setText("");
-       }else{viewHolder.mCategoryName.setText(petList.getCategory().getName());
+//       if(petList.getCategory().getName().equals("")) {
+//           viewHolder.mCategoryName.setText("");
+//       }else{viewHolder.mCategoryName.setText(petList.getCategory().getName());
 
-       }
+      // }
     }
 
     @Override
@@ -57,5 +57,9 @@ public class PetListRecyclerAdapter extends RecyclerView.Adapter<PetListRecycler
             mName = itemView.findViewById(R.id.name_pet);
             mCategoryName = itemView.findViewById(R.id.name_category);
         }
+    }
+    public void updateList(ArrayList<PetListObject> list){
+        this.petArrayList = list;
+        notifyDataSetChanged();
     }
 }

@@ -10,6 +10,7 @@ import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public interface ServerApi {
@@ -22,6 +23,10 @@ public interface ServerApi {
     @GET("pet/findByStatus")
     Call<List<PetListObject>> getPetList(
             @Query("status") String status);
+
+    @GET("pet/{id}")
+    Call<PetListObject> detailsPet(
+            @Path("id") long id);
 
     @POST("pet")
     Call<PetListObject> postPet(

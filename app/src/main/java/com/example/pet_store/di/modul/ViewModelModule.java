@@ -2,6 +2,8 @@ package com.example.pet_store.di.modul;
 
 import com.example.pet_store.di.ViewModelKey;
 import com.example.pet_store.list_pet.viewmodel.PetListViewModel;
+import com.example.pet_store.list_pet_details.view.PetDetailsActivity;
+import com.example.pet_store.list_pet_details.viewmodel.PetDetailsViewModel;
 import com.example.pet_store.list_pet_post.viewmodel.AddPetViewModel;
 import com.example.pet_store.login.viewmodel.LoginViewModel;
 import com.example.pet_store.di.ViewModelProviderFactory;
@@ -28,7 +30,12 @@ public abstract class ViewModelModule {
     @Binds
     @IntoMap
     @ViewModelKey(AddPetViewModel.class)
-    public abstract ViewModel bindAddPetViewModel(AddPetViewModel petListViewModel);
+    public abstract ViewModel bindAddPetViewModel(AddPetViewModel addPetViewModel);
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(PetDetailsViewModel.class)
+    public abstract ViewModel bindPetDetails(PetDetailsViewModel petDetailsViewModel);
 
     @Binds
     abstract ViewModelProvider.Factory bindViewModelFactory (ViewModelProviderFactory providerFactory);
