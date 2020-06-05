@@ -21,25 +21,18 @@ public class PetListViewModel extends ViewModel {
     private ResponsePetList responsePetList;
     private MutableLiveData<ArrayList<PetListObject>> petListLiveData;
 
-
-
-
     @Inject
     public PetListViewModel(ResponsePetList responsePetList) {
         this.responsePetList = responsePetList;
-
     }
-
     public void setPetList(String status) {
         responsePetList.setListObjectStatus(status);
     }
-
     public LiveData<ArrayList<PetListObject>> observeList() {
         return petListLiveData;
     }
     public void init(){
         petListLiveData = responsePetList.getLiveData();
     }
-
 
 }

@@ -14,17 +14,14 @@ import com.example.pet_store.databinding.ActivityLoginBinding;
 import com.example.pet_store.login.viewmodel.LoginViewModel;
 import com.example.pet_store.login.model.LoginResponseObject;
 import com.example.pet_store.di.ViewModelProviderFactory;
-
 import javax.inject.Inject;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import dagger.android.AndroidInjection;
-import dagger.android.support.DaggerAppCompatActivity;
 
-public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
+public class LoginActivity extends AppCompatActivity {
     private EditText etEmail;
     private  EditText etPassword;
     private Button btnLogin;
@@ -37,44 +34,27 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
         AndroidInjection.inject(this);
+        super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_login);
-
         loginViewModel =   ViewModelProviders.of(this, providerFactory).get(LoginViewModel.class);
-        loginViewModel.loginWithUser("abc","");
+        binding.setLoginViewModel(loginViewModel);
+        loginViewModel.init();
         subscribeObservers(this);
-
     }
 
     private void subscribeObservers(Context context){
         loginViewModel.observeUser().observe(this, new Observer<LoginResponseObject>() {
             @Override
             public void onChanged(LoginResponseObject user) {
-             attemptLogin();
-                Toast.makeText(context,"radi", Toast.LENGTH_LONG).show();
+                    attemptLogin();
             }
         });
     }
-
-
     private void attemptLogin() {
-//        if(TextUtils.isEmpty(etEmail.getText().toString())){
-//            return;
-//        }
-//        loginViewModel.loginWithUser(etEmail.getText().toString(),etPassword.getText().toString());
         Intent intent = new Intent(this, PetListActivity.class);
         startActivity(intent);
         finish();
-
     }
 
-
-    @Override
-    public void onClick(View v) {
-        Intent intent = new Intent(this, PetListActivity.class);
-        startActivity(intent);
-        finish();
-
-            }
 }

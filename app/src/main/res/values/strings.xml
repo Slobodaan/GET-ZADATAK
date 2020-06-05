@@ -4,6 +4,8 @@
     <string name="hintPas">Password</string>
     <string name="login">Login</string>
     <string name="add">ADD</string>
+    <string name="name">Name</string>
+    <string name="photos">Photos</string>
 
     <string-array name="pet_array">
         <item>Dog</item>

@@ -6,8 +6,10 @@ import com.example.pet_store.login.model.LoginResponseObject;
 
 import java.util.List;
 
+import okhttp3.RequestBody;
 import retrofit2.Call;
-import retrofit2.http.Field;
+
+import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
@@ -29,8 +31,10 @@ public interface ServerApi {
             @Path("id") long id);
 
     @POST("pet")
-    Call<PetListObject> postPet(
-            @Field("name") String status);
+    Call<PetListObject> postPet
+            (@Body RequestBody addPet);
+
+
 
 
 }

@@ -13,8 +13,8 @@ public class ResponseAddNewPet {
     public ResponseAddNewPet(ServerApi serverApi){
         this.serverApi = serverApi;
     }
-//    public LiveData<PetListObject> postPetObject(String name, String categoryName, String PhotosUrl){
-//        MutableLiveData<PetListObject> liveData = new MutableLiveData<>();
-//    });
+
+
+
 
 }

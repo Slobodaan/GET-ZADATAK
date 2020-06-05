@@ -2,12 +2,7 @@ package com.example.pet_store.Repository;
 
 import com.example.pet_store.list_pet.model.PetListObject;
 import com.example.pet_store.network.ServerApi;
-
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.inject.Inject;
-
 import androidx.lifecycle.MutableLiveData;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -20,8 +15,9 @@ public class ResponsePetDetails {
 
     @Inject
     public ResponsePetDetails(ServerApi serverApi) {
-        liveData = new MutableLiveData<>();
+
         this.serverApi = serverApi;
+        liveData = new MutableLiveData<>();
     }
 
     public void setDetail(long id) {
@@ -32,14 +28,15 @@ public class ResponsePetDetails {
                 PetListObject object = response.body();
                 liveData.postValue(object);
             }
-
             @Override
             public void onFailure(Call<PetListObject> call, Throwable t) {
-
+                System.out.println(t.getMessage());
             }
         });
+
     }
-    public MutableLiveData<PetListObject> getDetailsLiveData () {
+
+    public MutableLiveData<PetListObject> getLiveData() {
         return liveData;
     }
 }

@@ -16,7 +16,7 @@ import retrofit2.Response;
 
 public class ResponsePetList {
     private ServerApi serverApi;
-    private    MutableLiveData<ArrayList<PetListObject>> liveData ;
+    private  MutableLiveData<ArrayList<PetListObject>> liveData ;
 
     @Inject
     public ResponsePetList(ServerApi serverApi){
@@ -24,20 +24,14 @@ public class ResponsePetList {
         liveData = new MutableLiveData<>();
     }
 
-
-
     public void  setListObjectStatus(String status) {
-
-
         Call<List<PetListObject>> responseList = serverApi.getPetList(status);
-
         responseList.enqueue(new Callback<List<PetListObject>>() {
             @Override
             public void onResponse(Call<List<PetListObject>> call, Response<List<PetListObject>> response) {
                 List<PetListObject> object = response.body() ;
                liveData.postValue((ArrayList)object);
             }
-
             @Override
             public void onFailure(Call<List<PetListObject>> call, Throwable t) {
                System.out.println(t.getMessage());
