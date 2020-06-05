@@ -14,7 +14,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-        <EditText
+      <EditText
         android:paddingLeft="10dp"
         android:paddingStart="10dp"
         android:text="@={PetPostViewModel.Name}"

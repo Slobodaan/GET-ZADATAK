@@ -63,6 +63,7 @@ public class PetDetailsActivity extends AppCompatActivity {
             public void onChanged(PetListObject petListObject) {
                 mName.setText(petListObject.getName());
                 mStatus.setText(petListObject.getStatus());
+              //  mCategory.setText(petListObject.getCategory().getName());
                 galleryAdapter = new GalleryAdapter(getApplicationContext(), (ArrayList<String>) petListObject.getPhotoUrls());
                 galleryRecyclerView.setAdapter(galleryAdapter);
             }

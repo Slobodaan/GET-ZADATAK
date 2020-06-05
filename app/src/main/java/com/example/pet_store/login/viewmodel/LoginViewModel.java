@@ -1,11 +1,14 @@
 package com.example.pet_store.login.viewmodel;
 
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
 import com.example.pet_store.Repository.ResponseLogin;
 import com.example.pet_store.login.model.LoginResponseObject;
+
+import java.util.Objects;
 
 import javax.inject.Inject;
 
@@ -38,7 +41,14 @@ public class LoginViewModel extends ViewModel {
     }
 
     public void onClick(View view) {
-            loginWithUser(UserName.getValue(), Password.getValue());
+       if(TextUtils.isEmpty(UserName.getValue())){
+           Toast.makeText(view.getContext(),"Enter an Username",Toast.LENGTH_LONG).show();
+        } else if(TextUtils.isEmpty(Password.getValue())){
+           Toast.makeText(view.getContext(),"Enter a Password",Toast.LENGTH_LONG).show();
+       }else{
+           loginWithUser(UserName.getValue(), Password.getValue());
+       }
+
     }
 
     public void init() {

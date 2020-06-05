@@ -22,9 +22,7 @@ import androidx.lifecycle.ViewModelProviders;
 import dagger.android.AndroidInjection;
 
 public class LoginActivity extends AppCompatActivity {
-    private EditText etEmail;
-    private  EditText etPassword;
-    private Button btnLogin;
+
 
     private ActivityLoginBinding binding;
     private LoginViewModel loginViewModel;

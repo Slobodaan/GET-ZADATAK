@@ -22,10 +22,7 @@ import dagger.android.AndroidInjection;
 
 public class PetPostActivity extends AppCompatActivity {
 
-    private EditText mName;
-    private EditText mPhotos;
-    private Button mAdd;
-    private Spinner mCategory;
+
     private ActivityPetPostBinding binding;
     private PetPostViewModel addPetViewModel;
     @Inject

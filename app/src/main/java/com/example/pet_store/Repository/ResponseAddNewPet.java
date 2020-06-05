@@ -13,8 +13,4 @@ public class ResponseAddNewPet {
     public ResponseAddNewPet(ServerApi serverApi){
         this.serverApi = serverApi;
     }
-
-
-
-
 }
